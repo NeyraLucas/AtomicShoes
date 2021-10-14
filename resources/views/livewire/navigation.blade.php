@@ -1,4 +1,4 @@
-<header class="bg-BlueGray-900 sticky top-0" x-data="{ open:false }">
+<header class="bg-BlueGray-900 sticky top-0 z-50" x-data="{ open:false }">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a :class="{'bg-opacity-100 text-ColorCyan-500' : open}"
             x-on:click="open = !open"
@@ -96,7 +96,7 @@
                     {{-- imprimir las categiruas que vienen del modelo - aap htpp livewire navigation --}}
                     @foreach ($categories as $category)
                         <li class="navigation-link text-ColorCyan-700 hover:bg-gray-500 hover:text-white">
-                            <a href="" class="py-2 px-4 text-sm flex items-center">
+                            <a href="{{route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
                                 
                                 <span class="flex justify-center w-9">
                                     {!!$category->icon!!}
@@ -129,7 +129,7 @@
             <ul>
                 @foreach ($categories as $category)
                 <li class=" text-ColorCyan-700 hover:bg-gray-500 hover:text-white">
-                    <a href="" class="py-2 px-4 text-sm flex items-center">
+                    <a href="{{route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
                         
                         <span class="flex justify-center w-9">
                             {!!$category->icon!!}

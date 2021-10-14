@@ -12,9 +12,10 @@ class CategoryProducts extends Component
 
     public function loadPosts()
     {
-        $this->products = $this->category->products;
+        /* TAKE (numero de elementos a extraer) */
+        $this->products = $this->category->products()->where('status', 2)->take(15)->get();
         /* evento de livewire para renderizar antes */
-        $this->emit('glider');
+        $this->emit('glider', $this->category->id);
     }
 
     public function render()

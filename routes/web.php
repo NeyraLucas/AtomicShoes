@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\CategoryController; //importamos el controlador de las categorias
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,9 @@ use App\Http\Controllers\WelcomeController;
 */
 
 Route::get('/', WelcomeController::class);
+
+/* ruta de las categorias */
+Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
